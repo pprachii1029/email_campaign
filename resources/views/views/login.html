@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>CMS</title>
+	<link rel="stylesheet" href="<?= base_url('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/vendors/css/vendor.bundle.base.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/css/custom.css'); ?>">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
+	<link rel="shortcut icon" href="<?= base_url('assets/images/favicon.png'); ?>" />
+</head>
+
+<body>
+	<section class="body-backimage">
+		<div class="container-fluid">
+			<div class="row login-flex-edit">
+			    <div class="login-box-edit" style="align-items:unset !important;">
+    				<div class="col-sm-6 col-12 ml-4" id="EnglishContent">
+    				    <a class="navbar-brand brand-logo" href="#">
+                            <img src="http://techwinlabs.com/projects/assets/images/logo.png"style="    margin-top: -10px; width:30% !important;" alt="" class="img-fluid">
+                        </a>
+    					<div class="intro-text mt-5">    
+    						<h4 style="font-size: 23px;">In the deldone software you can:</h4>
+    						<h4 style="font-size: 23px;" class="">- See your tasks</h4>
+    						<h4 style="font-size: 23px;" class="">- Approve protocol</h4>
+    						<h4 style="font-size: 23px;" class="">- Mark tasks as done</h4><br><br>
+    						<h4 style="font-size: 23px;" class="">So simple you don´t need a manual</h4>
+    					</div>
+					</div>
+					<div class="col-sm-6 col-12 ml-4" id="SwedishContent" style="display:none;">
+					<a class="navbar-brand brand-logo" href="#">
+                            <img src="http://techwinlabs.com/projects/assets/images/logo.png"style="    margin-top: -10px; width:30% !important;" alt="" class="img-fluid">
+                    </a>    
+							<div class="intro-text mt-5">    
+								<h4 style="font-size: 23px;" class="">I Deldoneprogrammet kan du:</h4>
+								<h4 style="font-size: 23px;" class="">- Se dina arversupgifter</h4>
+								<h4 style="font-size: 23px;" class="">- Markera att du last motesprotokollet</h4>
+								<h4 style="font-size: 23px;" class="">- Markera arbetsuppgiffterna som klara</h4><br><br>
+								<h4 style="font-size: 23px;" class="">Sa enkelt att du inte behover en manual</h4>
+							</div>
+						</div>
+						<div class="col-sm-1  col-12"></div>
+    				<div class="col-sm-5  col-12 mr-5">
+    				    <div class="select-dropdown-edit">
+    					    <select id="inputState" class="form-control select-focus-edit" style="font-size: 23px;font-weight: 500;padding:0">
+                            <option selected>English</option>
+                            <option>Swedish</option>
+                        </select>
+    					</div>
+    					
+    					<div class="form-background">
+    						<h3 class="mb-4">Login</h3>
+    						<form method="POST">
+    							<div class="form-group row mb-2 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Email Address</label>
+    									<input type="email" class="form-control form-edit" id="inputEmail4" name="email">
+    								</div>
+    							</div>
+    							<div class="form-group row mb-2 mt-4 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Password</label>
+    									<input type="password" class="form-control form-edit" id="inputPassword3" name="password">
+    								</div>
+    							</div>
+    							<div class="form-group row form-margin-edit">
+    								<div class="col-sm-12 margin-checkbox-edit">
+    									<div class="form-check">
+    										<input class="form-check-input label-heading" type="checkbox" id="gridCheck1" name="rember">
+    										<label class="form-check-label" for="gridCheck1">Remember me</label>
+    									</div>
+    								</div>
+    							</div>
+    							<div class="form-group row form-margin-edit">
+    								<div class="col-sm-12">
+    									<button type="submit" class="btn btn-primary w-100 button-gradient">Login</button>
+    								</div>
+    								<p class="terms-conditions">By logging in you are accepting Deldone terms and conditions & <a href="<?php echo base_url('assets/pdf/pdf.html')?>" target="_blank" class="underline-edit">Integrity policy</a>
+    								</p>
+    							</div> <a href="<?= base_url('auth/forgotPassword')?>" class="underline-edit"><h4 class="forgot-password text-right">Forgot Password?</h4></a>
+    						</form>
+    					</div>
+    					<a href="<?= base_url('auth/signup') ?>"><button type="button" class="btn btn-primary w-100 button-gradient mt-4 mb-0" style="max-width: 88%;">Not having an account?</button></a>
+    				</div>
+			    </div>
+			</div>
+		</div>
+	</section>
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+	<script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
+	<script src="<?= base_url('assets/vendors/js/vendor.bundle.addons.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/off-canvas.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/custom.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/misc.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/dashboard.js'); ?>"></script>
+
+    <?php if($this->session->flashdata('success')){     ?>
+    <script>
+        $(document).ready(function(){
+            success('<?= $this->session->flashdata('success') ?>');
+        });
+    </script>
+    <?php } ?>
+    <?php if($this->session->flashdata('error')){     ?>
+    <script>
+        $(document).ready(function(){
+            error('<?= $this->session->flashdata('error') ?>');
+        });
+    </script>
+	<?php } ?>
+	<script>
+		$(function(){
+ 			$("select#inputState").change(function(){
+			   	selectValue = $(this).val() ;
+				if(selectValue=="English"){
+					$("#EnglishContent").css("display","block");
+					$("#SwedishContent").css("display","none");
+				}else{
+					$("#SwedishContent").css("display","block");
+					$("#EnglishContent").css("display","none");
+				}     
+ 	});
+});
+	</script>
+        
+    
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+,name,email,created_on,password,remember_token,modified_on,isir,phone
+,Harmandeep Singh,harmandeep.techwinlabs@gmail.com,2019-07-26 06:50:01,$2y$10$tpdYpjlnGtd4CUbuvFaBoeHO8vBsWepemWs9oAxokStNCsGxTZ0Vy,Ium0pEQHxVytYJq8DDyEwYtvC24sQ17SAQ16GoMlfCnkwYqI10ChchWaReIk,2019-07-02 11:32:09,2019-07-26 06:50:01,1234567890
+,Neha Rani,neharani.techwinlabs@gmail.com,NULL,$2y$10$7fDO0B36jtcVCOYQ6M8DN.q89YIaBDi.5TvtYNBug0RXoxm9EbGpS,NULL,2019-07-04 06:52:16,2019-07-04 06:52:16,123456
+,Hem Chand,harman@yopmail.com,2019-07-04 07:12:53,$2y$10$PgysYvMOXhFVjKzE34jzoOmEESeXBKRu0UAzs1BKHurM/1fXZ.uDO,NULL,2019-07-04 07:09:48,2019-07-04 07:12:53,9876543210
+,Harmandeep,harman1@yopmail.com,2019-07-04 07:24:04,$2y$10$6nQ/eIg7lsTra1vE9fFcaOS4YJyvJl433yMdPtxAlXz7TGMssleT2,NULL,2019-07-04 07:16:39,2019-07-04 07:24:04,1234567890

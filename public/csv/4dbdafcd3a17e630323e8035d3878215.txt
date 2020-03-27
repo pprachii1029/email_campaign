@@ -1,0 +1,15 @@
+<pre>
+<?php
+$assoc_array = [];
+if (($handle = fopen("users.csv", "r")) !== false){
+    if (($data = fgetcsv($handle, 1000, ",")) !== false){
+        $keys = $data;
+    }
+    while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+        $assoc_array[] = array_combine($keys, $data);
+    }
+    fclose($handle);
+}
+
+
+print_r($assoc_array);

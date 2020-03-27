@@ -1,0 +1,1 @@
+file '/var/www/html/email_campaign/public/template/15847993228438.mp4'

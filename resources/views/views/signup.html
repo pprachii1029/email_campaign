@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>CMS</title>
+	<link rel="stylesheet" href="<?= base_url('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/vendors/css/vendor.bundle.base.css'); ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/css/custom.css'); ?>">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/css/alertify.min.css"/>
+	<link rel="shortcut icon" href="<?= base_url('assets/images/favicon.png'); ?>" />
+</head>
+
+<body>
+	<section class="body-backimage">
+		<div class="container-fluid">
+			<div class="row login-flex-edit">
+			    <div class="login-box-edit">
+    				<div class="col-sm-6 my-auto ml-4">
+    					<div class="intro-text">    
+    					    <h3 class="">Construction Project Manager - Can You Follow Up?</h3><br><br>
+    						<h4 class=""> software simplify meeting protocol:</h4>
+    						<h4 class="">- Delegate</h4>
+    						<h4 class="">- Follow up</h4>
+    						<h4 class="">- Always updated</h4><br><br>
+    						<h4 class="">Simple, get started in a few hours save time indefinently</h4>
+    					</div>
+    				</div>
+    				<div class="col-sm-4 mr-5">
+    				    <div class="select-dropdown-edit">
+    					    <select id="inputState" class="form-control select-focus-edit">
+                            <option selected>English</option>
+                            <option>Swedish</option>
+                        </select>
+    					</div>
+    					
+    					<div class="form-background">
+    						<h3 class="mb-4">Sign Up</h3>
+    						<form method="POST">
+    							<div class="form-group row mb-2 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Full Name</label>
+    									<input type="name" class="form-control form-edit" id="inputEmail4" name="name">
+    								</div>
+    							</div>
+    							<div class="form-group row mb-2 mt-4 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Email Address</label>
+    									<input type="email" class="form-control form-edit" id="inputEmail4" name="email">
+    								</div>
+    							</div>
+    							<div class="form-group row mb-2 mt-4 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Password</label>
+    									<input type="password" class="form-control form-edit" id="inputPassword3" name="password">
+    								</div>
+    							</div>
+    							<div class="form-group row mb-2 mt-4 form-margin-edit">
+    								<div class="col-sm-12">
+    									<label for="inputEmail4" class="label-heading">Confirm Password</label>
+    									<input type="password" class="form-control form-edit" id="inputPassword3" name="password">
+    								</div>
+    							</div>
+    							<div class="form-group row form-margin-edit mt-3">
+    								<div class="col-sm-12">
+    									<button type="submit" class="btn btn-primary w-100 button-gradient">Sign Up</button>
+    								</div>
+    								<p class="terms-conditions">By logging in you are accepting "future name of site" terms and conditions & <a href="#" class="underline-edit">Integrity policy</a>
+    								</p>
+    							</div> 
+    						</form>
+    					</div>
+    		
+    				</div>
+			    </div>
+			</div>
+		</div>
+	</section>
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.12.0/build/alertify.min.js"></script>
+	<script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
+	<script src="<?= base_url('assets/vendors/js/vendor.bundle.addons.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/off-canvas.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/custom.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/misc.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/dashboard.js'); ?>"></script>
+
+    <?php if($this->session->flashdata('success')){     ?>
+    <script>
+        $(document).ready(function(){
+            success('<?= $this->session->flashdata('success') ?>');
+        });
+    </script>
+    <?php } ?>
+    <?php if($this->session->flashdata('error')){     ?>
+    <script>
+        $(document).ready(function(){
+            error('<?= $this->session->flashdata('error') ?>');
+        });
+    </script>
+    <?php } ?>
+        
+    
+</body>
+
+</html>

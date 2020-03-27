@@ -1,0 +1,176 @@
+/*.send_campaignTemp div.tab-frame input{ display:none;}
+.send_campaignTemp div.tab-frame label{ display:block; float:left;color: #1e88e5;padding: 15px 10px;background-color: #eceff3; cursor:pointer;}
+.send_campaignTemp div.tab-frame input:checked + label{ background: #1e88e5;color: white; padding: 15px;cursor: default; }
+.send_campaignTemp div.tab-frame div.tab{ display:none; padding:5px 10px;clear:left}
+.send_campaignTemp div.tab-frame input:nth-of-type(1):checked ~ .tab:nth-of-type(1),
+.send_campaignTemp div.tab-frame input:nth-of-type(2):checked ~ .tab:nth-of-type(2),
+.send_campaignTemp div.tab-frame input:nth-of-type(3):checked ~ .tab:nth-of-type(3){ display:block;}*/
+/* Tabs */
+/*.modal-body {
+    overflow-y: scroll;
+    height: 400px;
+}*/
+.appendDiv_container .groupSequance_Container .groupSequance {
+    display: flex;
+    margin: 1px;
+}
+.send_campaignTemp .tabs {border-radius: 5px 5px 5px 5px;}
+.send_campaignTemp ul#tabs-nav {list-style: none;margin: 0;padding: 5px;overflow: auto;}
+.send_campaignTemp ul#tabs-nav li {background-color: #ededed;float: left;font-weight: bold;margin-right: 2px;padding: 8px 10px;border-radius: 5px 5px 5px 5px;cursor: pointer;}
+.send_campaignTemp ul#tabs-nav li:hover,
+.send_campaignTemp ul#tabs-nav li.active {background-color: #08E;}
+.send_campaignTemp #tabs-nav li a {text-decoration: none;color: #FFF;    color: #007bff}
+.send_campaignTemp .tab-content {padding: 10px;}
+.send_campaignTemp #tabs-nav li.active a {color: #fff;}
+.send_campaignTemp ul#tabs-nav li a:hover {color: #fff;}
+ div#demo li {border-radius: 38px; background-color: #1e88e5;color: white;margin: 5px 0px;}
+.automation_EmailProcess {padding: 15px;background-color: #dcdcdc;margin: 10px;}
+.emailDrip_automationContainer input.input-check{width: 50% !important;}
+.emailDrip_automationContainer .check-label{font-size: 21px;font-weight: 600;padding: 9px 41px 1px 1px;}
+.emailDrip_automationContainer .wrapper {text-align: center; background-color: transparent; display: block;}
+.emailDrip_automationContainer [type=radio] { position: absolute;opacity: 0;width: 0;height: 0;}
+.emailDrip_automationContainer [type=radio] + img { cursor: pointer;	}
+.emailDrip_automationContainer [type=radio]:checked + img { outline: 2px solid #f00;}
+.emailDrip_automationContainer .button-width{padding: .375rem 2.75rem !important;	}
+.emailDrip_automationContainer #regForm { background-color: #ffffff; margin: auto; font-family: Raleway; padding: initial; width: 100%; min-width: 300px;}
+.emailDrip_automationContainer h1 {text-align: center; }
+.emailDrip_automationContainer input {padding: 10px;width: 100%;font-size: 17px;font-family: Raleway;border: 1px solid #aaaaaa;}
+.emailDrip_automationContainer input.invalid {background-color: #ffdddd;}
+.emailDrip_automationContainer .tab { display: none;}
+.emailDrip_automationContainer button {background-color: #007bff;color: #ffffff;border: none;padding: 10px 30px;font-size: 17px;font-family: Raleway;cursor: pointer;}
+.emailDrip_automationContainer button:hover {opacity: 0.8;}
+.emailDrip_automationContainer #prevBtn {background-color: #bbbbbb;}
+.emailDrip_automationContainer .step { height: 15px;width: 15px;margin: 0 2px;background-color: #bbbbbb;border: none;border-radius: 50%;display: inline-block;opacity: 0.5;}
+.emailDrip_automationContainer .step.active {opacity: 1;}
+.emailDrip_automationContainer .step.finish {background-color: #007bff;}
+.tab.contacts_Tab img {border-radius: 141px;width: 100px;height: 100px;}
+.emailDrip_automationContainer [type=radio]:checked + video{ outline: 3px solid #10e318 !important; }
+.appendDiv_container a#submitBtn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+}
+.appendDiv_container .emailDrip_automationContainer .tab .modal-header {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+ul.list-unstyled.components a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/*.send_campaignTemp body{width:600px;margin:20px auto;}*/    
+
+.appendDiv_container .btnfunc.btn {
+	border-radius: 0;
+}
+.appendDiv_container .modal-content.modal-color-trans {
+	background-color: transparent;
+	border: none;
+}
+.appendDiv_container .modal-body.body-background {
+	background-color: #fff;
+}
+.appendDiv_container span.cross-weight {
+	color: #fff;
+	font-size: 36px;
+	font-weight: 100;
+}
+.hide{ display: none; }
+.inputField_Time.row {
+    padding: 15px;
+}
+.contentOfTime {
+    display: flex;
+}
+
+.inputField_Time.row input {
+    /* display: flex; */
+    margin-left: 15px;
+    border-radius: 5px;
+    box-shadow: none;
+    border-style: groove;
+    padding: 4px;
+}
+.requiredAlert__messaage .top_Line {text-align: center;padding: 10px;}
+.requiredAlert__messaage p.bottom_Line {text-align: center;padding: 2px 0px 5px 0px;}
+.requiredAlert__messaage ul.alertContent_below li {
+    padding: 15px; list-style: none;
+}
+.requiredAlert__messaage {
+    text-align: center;
+}
+.requiredAlert__messaage ul.alertContent_below li i {
+    font-size: 25px;
+    background-color: #cbd3d9;
+    width: 65px;
+    border-radius: 100px;
+    height: 65px;
+    padding-top: 18px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+span.countLines {
+    font-size: 25px;
+    font-weight: bold;
+}
+ul.alertContent_below a.warnning__ContentBtn {
+    display: flex;
+}
+.automation_startBtn {
+    float: right;
+    padding: 15px;
+}
+form.timeForm select#modalSendTime {
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 0px 10px;
+}
+.user_selection {
+    display: flex;
+}
+.inputField_Time{ display: none; }
+.activeTime{ display: block !important; }
+.auth_loader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.auth_loader img {
+    width: 10%;
+}
+.send_campaignTemp p.emailAutomationStatus {text-transform: capitalize;}
+.send_campaignTemp p.emailAutomationStatus i {font-size: 30px; padding-right: 10px;}
+p.dripStatus__btn.underProgre { color: green;}
+
+/*media*/
+@media only screen and (max-width: 768px) and (min-width: 320px) {
+	.appendDiv_container .col-md-1.col-12 {
+		padding: 0;
+		margin-bottom: 10px;
+	}
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+	.appendDiv_container h4 {
+		font-size: 16px;
+	}
+	.appendDiv_container p {
+		font-size: 11px;
+	}
+}

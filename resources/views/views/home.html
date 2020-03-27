@@ -1,0 +1,476 @@
+<style>
+.float-buttons {
+    position: absolute;
+    right: 16px;
+    bottom: 13px;
+    font-size: 13px;
+    font-style: italic;
+    background: #e1e1e1;
+    padding: 0px 10px;
+}
+.add-project-form-input:focus .float-buttons {
+    background: #b8b8b8 !important;
+    border: 1px solid #8d41fa !important;
+}
+.clndr_div {
+  position: relative;
+}
+.calendr {
+  position: absolute;
+  opacity: 0;
+}
+.calendr::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.calendr:hover + button {
+  background-color: silver;
+  
+  box-shadow: none;
+    color: white !important;
+    background-image: linear-gradient(90deg, #da8cff, #8b3ffa) !important;
+}
+
+.subtasks_append{
+    margin-top: 15px;
+}
+.edit_hr {
+    width: 100%;
+    margin-left: 0;
+    background: #eaeaea !important;
+    opacity: 0.5;
+    margin: 5px;
+}
+.tr_active{
+    background: #e3e3e3;
+}
+nav.sidebar.sidebar-offcanvas{
+    width: 90%;
+}
+.protocol-div{
+    overflow: auto; 
+    height: 85%; 
+    display: block; 
+    white-space: nowrap; 
+    overflow-x: hidden;
+}
+span.done-floating-edit {
+    color: #198c00;
+    text-decoration: underline;
+    font-style: italic;
+}
+span.erase-floating-edit {
+    color: #db0400;
+    text-decoration: underline;
+    font-style: italic;
+}
+span.edit-floating-edit {
+    color: #212121;
+    text-decoration: underline;
+    font-style: italic;
+}
+.functions-dropdown{
+    width: 100%;
+}
+.button-fixed-width{
+    width: 100%;
+}
+.user-selected{
+    background-image: linear-gradient(90deg, #da8cff, #8b3ffa) !important;
+    color: #fff;
+}
+.cross-icon{
+    border: 1px #333 solid;
+    background-color: #fff;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 4px;
+    font-weight: 100;
+    padding: 0px 3px;
+    font-size: 12px !important;
+}
+.status-btn{
+    height: 33px !important;
+    padding: 0 10px !important;
+}
+button#dropdownMenuButtonnn:focus {
+    border-radius: 24px;
+    background-image: linear-gradient(90deg, #da8cff, #8b3ffa) !important;
+    color: white !important;
+}
+.scrollable-element { 
+    scrollbar-width: 5px;
+    width          : 5px;
+}
+scrollbar {
+ width: 5px;
+}
+
+</style>
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <section class="body-backimage" style="overflow:unset !important;">
+            <div class="container-fluid table-height-edit setwidth">
+                <div class="row table-height-edit" style="padding-bottom:15px;flex-wrap:nowrap;">
+                    <div class="col-sm-11 col-11 mx-auto table-background" style="height:100%;">
+                        <div class="segmentation table-height-edit ">
+                            <div class="d-flex align-items-center"> <span id="back-btn" class="cursor-pointer" style="display: none;" onclick="location.reload()"><i class="fa fa-chevron-left back-button"></i></span>
+                                <span id="back-btn2" class="cursor-pointer" style="display: none;" onclick="trigger_overview_and_hide(this)"><i class="fa fa-chevron-left back-button"></i></span>
+
+                                <ul class="nav nav-pills segmentation-background" id="pills-tab" role="tablist">
+                                  <?php if($user_type==1){ //<maninder_16dec> ?>    <!-- Manager -->
+                                    <li class="nav-item cursor-pointer" onclick="show_projects()">
+                                        <a class="nav-link active underline-edit2" id="pills-home-tab">
+                                            <img src="<?= base_url('assets/images/projects.png') ?>" alt="" class="img-fluid mb-1 mr-2 " />Projects</a>
+                                    </li>
+                                    <li class="nav-item cursor-pointer" onclick="view_project(this)">
+                                        <a class="nav-link underline-edit2" id="pills-profile-tab">
+                                            <img src="<?= base_url('assets/images/overview.png') ?>" alt="" class="img-fluid mb-1 mr-2" />Overview</a>
+                                    </li>
+                                    <li class="nav-item cursor-pointer" onclick="view_protocol(this)">
+                                        <a class="nav-link underline-edit2" id="pills-contact-tab">
+                                            <img src="<?= base_url('assets/images/protocol.png') ?>" alt="" class="img-fluid mb-1 mr-2" />Protocol</a>
+                                    </li> 
+                                  <?php }else if($user_type==3){ ?>                 <!-- Project Member -->
+                                    <li class="nav-item cursor-pointer" onclick="show_projects()">
+                                        <a class="nav-link active underline-edit2" id="pills-home-tab">
+                                            <img src="<?= base_url('assets/images/projects.png') ?>" alt="" class="img-fluid mb-1 mr-2 " />Projects</a>
+                                    </li>
+                                    <li class="nav-item cursor-pointer" >
+
+                                        <div class="dropdown">
+                                            <button class="btn" type="button" id="dropdownMenuButtonnn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="
+                                                align-items: center;
+                                                justify-content: center;
+                                                padding: 0;
+                                                height: 40px;
+                                                background-color: #e3e3e3;
+                                                font-family: 'Montserrat', sans-serif !important;
+                                            ">
+    
+                                            <a class="nav-link underline-edit2" >
+                                                              
+                                                        <img src="http://127.0.0.1/maninder/deldone/assets/images/protocol.png" alt="" class="img-fluid mb-1 mr-2">Print/Pdf</a></button>    
+                                                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" x-placement="bottom-start" style="
+                                                        position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">    
+                                                        <?php   foreach($projects as $keyy => $project){     ?>     
+                                                            <li class="dropdown-submenu"> <a class="dropdown-item dropdown-item-edit" tabindex="-1" href="#"><?= $project['name'] ?></a>   
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="dropdown-item dropdown-item-edit">
+                                                                        <a id="13" class="protocol_listing" tabindex="-1" href="#">Protocol</a>
+                                                                    </li> 
+                                                                    <li class="dropdown-item dropdown-item-edit">
+                                                                        <a id="14" class="protocol_listing" onclick="update_protocol_member_section(<?= $project['project_id'] ?>)" tabindex="-1" href="#">Update Protocol</a> 
+                                                                    </li> 
+                                                                    <li class="dropdown-item dropdown-item-edit">
+                                                                        <a id="15" class="protocol_listing" tabindex="-1" href="#">Updated Task User</a>
+                                                                    </li> 
+                                                                </ul>
+                                                            </li>
+                                                        <?php } ?>    
+                                                        </ul>
+                                                </div>
+                                        </li>     
+                                        <?php } //</maninder_16dec> ?>    
+
+                                                </ul>
+                </div>
+                            <div class="tab-content table-height-edit" id="pills-tabContent">
+                                <div class="tab-pane fade show active table-height-edit" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" >
+                                    
+                                    <div class="alert alert-danger alert-color-edit mt-2 mb-0" style="display: none;" role="alert" id="error_msg"><span class="error-color">Error</span>- Choose a project first.</div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <?php if($user_type==1){ ?>
+                                                    <th style="width:30%;">Project Name</th> <!-- manager          -->
+                                                    <th style="width:30%;" class="text-center">Approved Protocols</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_late_tasks(this)">Late</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_todo_tasks(this)">To Do</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_done_tasks(this)">Done</th>
+                                                    <th style="width:10%;" class="text-center">Action</th>
+                                                <?php }else if($user_type==3){ ?>              <!-- member         --> 
+                                                    <th style="width:30%;">Project Name</th>   <!-- maninder_19dec -->
+                                                    <th style="width:30%;" class="text-center cursor-pointer" onclick="get_all_approved_protocols_member(this)">Approved Protocols</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_late_tasks_member(this)">Late</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_todo_tasks_member(this)">To Do</th>
+                                                    <th style="width:10%;" class="text-center cursor-pointer" onclick="get_all_done_tasks_member(this)">Done</th>
+                                                <?php } ?>    
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                   <!-- Pervoius height -57-->
+                                   
+                                    <div class="table-responsive table-scroller projects-1" style="height: 61%;">
+                                        <table class="table">
+                                            <tbody id="projects_append">
+                                            <?php   foreach($projects as $keyy => $project){     ?>    
+                                                <tr class="project_tr">
+                                                    
+                                                    <?php if($user_type==1 ) { ?>                <!-- manager  |  maninder_dec16   --> 
+                                                        <td style="width:30%;" onclick="select_project(this)" project-id="<?= encrypt($project['project_id']); ?>" class="cursor-pointer">
+                                                                <input type="radio" class="d-none selected_project" value="<?= encrypt($project['project_id']); ?>" name="selected_project">
+                                                                <?= $project['name']; ?>
+                                                        </td>
+                                                        <td style="width:30%;" class="text-center <?= $project['late']+$project['to_do']+$project['done']>0 ? 'red-color-edit' : '' ?>"><?= $project['to_do']>0 ? $project['protocols_approved'] : 0 ?> (<?= $project['protocol_count']; ?>)</td>
+                                                    <? }else if($user_type==3){ ?>               <!-- member   |  maninder_dec16   -->
+                                                        <td style="width:30%;" onclick="project_click_member_section(this)" project-id="<?= encrypt($project['project_id']); ?>" class="cursor-pointer">
+                                                                <input type="radio" class="d-none selected_project" value="<?= encrypt($project['project_id']); ?>" name="selected_project">
+                                                                <?= $project['name']; ?>
+                                                        </td>
+                                                        <td style="width:30%;" class="text-center <?= $project['isapproved']==0 ? 'red-color-edit' : '' ?>"><?= $project['isapproved']==0 ? "No <button onclick='approveMemberProctocol(this,".$project['project_id'].",".$member_id_loginuser.")'>Approve</button>" : "Yes" ?> </td>
+                                                    <?php } ?>
+                                                        
+                                                    <?php if($user_type==1 ){ ?>
+                                                        <?php if($project['late'] > 0 ) { ?>
+                                                        
+                                                            <td style="width:10%;" class="text-center cursor-pointer1 red-color-edit" onclick="get_late_tasks(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['late'] ?></td>
+                                                        <?php }else{ ?>
+                                                            <td style="width:10%;color: black !important;" class="text-center cursor-pointer red-color-edit" onclick="get_late_tasks(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['late'] ?></td>
+                                                        <?php } ?>
+                                                    <td style="width:10%;" class="text-center cursor-pointer" onclick="get_todo_tasks(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['to_do'] ?></td>
+                                                    <td style="width:10%;" class="text-center cursor-pointer" onclick="get_done_tasks(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['done'] ?></td>
+                                                    
+                                                    <td style="width:10%;" class="text-center"> 
+                                                            <img src="<?= base_url('assets/images/delete-icon.png'); ?>" alt="image" class="cursor-pointer" onclick="delete_project(this)" id="<?= encrypt($project['project_id']); ?>">
+                                                    </td>
+                                                </tr>
+                                                <?php }else if($user_type==3){  ?>
+                                                
+                                                <?php if($project['late'] > 0 ) { ?>
+                                                    <td style="width:10%;" class="text-center cursor-pointer1 red-color-edit" onclick="get_late_tasks_member(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['late'] ?></td>
+                                                <?php }else{ ?>
+                                                    <td style="width:10%;color: black !important;" class="text-center cursor-pointer red-color-edit" onclick="get_late_tasks_member(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['late'] ?></td>
+                                                <?php } ?>
+                                                <td style="width:10%;" class="text-center cursor-pointer" onclick="get_todo_tasks_member(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['to_do'] ?></td>
+                                                <td style="width:10%;" class="text-center cursor-pointer" onclick="get_done_tasks_member(this)" project-id="<?= encrypt($project['project_id']); ?>"><?= $project['done'] ?></td>
+ 
+                                            <?php }
+                                        }  ?>   <!-- Foreach ends here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 projects-1">
+                                        <!-- maninder_16dec -->
+                                        <?php
+                                            if($user_type==1){
+                                        ?>
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3 pr-0 pr-sm-4 mb-0 mt-3">
+                                                    <label for="inputEmail4" class="label-font-size-edit">Project Name</label>
+                                                    <input type="text" class="form-control mt-2 add-project-form-input project_name" id="inputEmail4" placeholder="">
+                                                </div>
+                                                <div class="form-group col-md-3 pr-0 pr-sm-4 mb-0 mt-3">
+                                                    <label for="inputPassword4" class="label-font-size-edit">Place</label>
+                                                    <input type="text" class="form-control mt-2 add-project-form-input project_place" id="inputPassword4" placeholder="">
+                                                </div>
+                                                <div class="form-group col-md-3 pr-0 pr-sm-4 d-flex align-items-end mb-0 mt-2">
+                                                    <button type="button" class="btn btn-primary button-add-project" onclick="add_new_project()">Add New Project</button>
+                                                </div>
+                                                <div class="form-group col-md-3 pr-0 pr-sm-4 d-flex align-items-end mb-0 mb-sm-2" id="processing_add_project">
+                                                    
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <?php
+                                            }
+                                        ?>
+                                        <!-- maninder_16dec -->
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade table-height-edit" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" style="height: 90%;">
+                                    
+                                </div>
+                                <div class="tab-pane fade table-height-edit" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="<?= base_url('assets/js/home_ajax.js'); ?>"></script>
+<script >
+   
+// maninder_18dec    
+function approveMemberProctocol(_this,project_id,member_id){
+  
+    $(_this).parent().removeClass("red-color-edit");
+    $(_this).parent().html("Yes");
+   
+    $.ajax({
+        url: BASE_URL+'ajax/approveMemberProctocol',
+        type:'POST',
+        data:{'project_id':project_id,'member_id':member_id},
+        success: function(data){
+            $(_this).parent().removeClass("red-color-edit");
+            $(_this).parent().html("Yes");
+        },
+        error: function(data){
+            
+        }
+    });
+}
+
+// maninder_17dec   
+function get_late_tasks_member(ele){
+    project_id = $(ele).attr('project-id');
+    $.ajax({
+        url: BASE_URL+'ajax/get_late_tasks_member',
+        type:'post',
+        data:{'project_id':project_id},
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    })
+}
+
+// maninder_17dec
+function get_todo_tasks_member(ele){
+    project_id = $(ele).attr('project-id');
+    $.ajax({
+        url: BASE_URL+'ajax/get_todo_tasks_member',
+        type:'post',
+        data:{'project_id':project_id},
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+// maninder_17dec
+function get_done_tasks_member(ele){
+    project_id = $(ele).attr('project-id');
+    $.ajax({
+        url: BASE_URL+'ajax/get_done_tasks_member',
+        type:'post',
+        data:{'project_id':project_id},
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+//maninder_17dec
+function get_all_late_tasks_member(ele) {
+    $.ajax({
+        url: BASE_URL+'ajax/get_all_late_tasks_member',
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#pills-home").css('overflow-y','auto');
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+//maninder_17dec
+function get_all_todo_tasks_member(ele) {
+    $.ajax({
+        url: BASE_URL+'ajax/get_all_todo_tasks_member',
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#pills-home").css('overflow-y','auto');
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+//maninder_17dec
+function get_all_done_tasks_member(ele) {
+    $.ajax({
+        url: BASE_URL+'ajax/get_all_done_tasks_member',
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#pills-home").css('overflow-y','auto');
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+
+
+// maninder_19dec
+function get_all_approved_protocols_member(ele){
+    $.ajax({
+        url: BASE_URL+'ajax/get_all_approved_protocols_member',
+        type:'post',
+        data:{'project_id':0},
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+
+// maninder_19dec
+function project_click_member_section(_this){
+    project_id = $(_this).attr("project-id") ;
+    $.ajax({
+        url: BASE_URL+'ajax/project_click_member_section',
+        type:'post',
+        data:{ 'project_id':project_id },
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+
+// maninder_19dec
+function update_protocol_member_section(project_id){
+  
+    $.ajax({
+        url: BASE_URL+'ajax/update_protocol_member_section',
+        type:'post',
+        data:{ 'project_id':project_id },
+        success: function (data){
+            $("#pills-home").html(data);
+            $("#back-btn").show(200);
+        },
+        error: function (data) {
+            error('Internal server error.');
+        }
+    });
+}
+
+
+
+</script>    
